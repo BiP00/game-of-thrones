@@ -1,0 +1,35 @@
+.imagen1{
+  height: 250px;
+  width: auto;
+  background-image: url(stark.jpg);
+  background-size: cover;
+  
+}
+
+.imagen2{
+  height: 250px;
+  width: auto;
+  background-image: url(targaryen.jpg);
+  background-size: cover;
+  
+}
+
+.imagen3{
+  height: 250px;
+  width: auto;
+  background-image: url(lannister.jpg);
+  background-size: cover;
+  
+}
+
+.imagen4{
+  height: 250px;
+  width: auto;
+  background-image: url(baratheon.png);
+  background-size: cover;
+  
+}
+
+.imagen{
+  position: relative;
+}

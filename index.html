@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game of Thrones</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-secondary">
+  <div class="container">
+    <div class="mt-4 row">
+      <div class="col-3 imagen1 imagen"></div>
+      <div class="col-3 imagen2 imagen"></div>
+      <div class="col-3 imagen3 imagen"></div>
+      <div class="col-3 imagen4 imagen"></div>
+    </div>
+
+
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      $(".imagen1").hover(function () {
+        $(".imagen1").append(`<div class="m-3 mt-5 card tajeta " style="width: 18rem; background-color: rgba(245, 245, 245, 0.8) !important;
+  opacity: 1"><div class="card-body"><h5 class="card-title">House of Stark.</h5><a href="#" id="stark" class="card-link">Más info...</a></div></div>`)
+      }, function () {
+        $('.tajeta').remove();
+      })
+      $(".imagen2").hover(function () {
+        $(".imagen2").append(`<div class="m-3 mt-5 card tajeta " style="width: 18rem; background-color: rgba(245, 245, 245, 0.8) !important;
+  opacity: 1"><div class="card-body"><h5 class="card-title">House of Targaryen.</h5><a href="#" id="targaryen" class="card-link">Más info...</a></div></div>`)
+      }, function () {
+        $('.tajeta').remove();
+      })
+      $(".imagen3").hover(function () {
+        $(".imagen3").append(`<div class="m-3 mt-5 card tajeta " style="width: 18rem; background-color: rgba(245, 245, 245, 0.8) !important;
+  opacity: 1"><div class="card-body"><h5 class="card-title">House of Lannister.</h5><a href="#" id="lannister" class="card-link">Más info...</a></div></div>`)
+      }, function () {
+        $('.tajeta').remove();
+      })
+      $(".imagen4").hover(function () {
+        $(".imagen4").append(`<div class="m-3 mt-5 card tajeta " style="width: 18rem; background-color: rgba(245, 245, 245, 0.8) !important;
+  opacity: 1"><div class="card-body"><h5 class="card-title">House of Baratheon.</h5><a href="#" id="baratheon" class="card-link">Más info...</a></div></div>`)
+      }, function () {
+        $('.tajeta').remove();
+      })
+
+      $("body").on("click", "#stark", function () {
+        $('.info').remove();
+        $.get("https://anapioficeandfire.com/api/houses/362/", function (data) {
+          console.log(data)
+          $(".row").append(`<div class="rounded info mt-5 col-6 bg-light offset-md-3"><h3 class="p-2">House Details</h3><ul><li>Name: ${data.name}</li><li>Words: ${data.words}</li></ul><p class="p-2">Titles: ${data.titles}</p></div>`);
+        })
+      })
+
+      $("body").on("click", "#targaryen", function () {
+        $('.info').remove();
+        $.get("https://anapioficeandfire.com/api/houses/378/", function (data) {
+          console.log(data)
+          $(".row").append(`<div class="rounded info mt-5 col-6 bg-light offset-md-3"><h3 class="p-2">House Details</h3><ul><li>Name: ${data.name}</li><li>Words: ${data.words}</li></ul><p class="p-2">Titles: ${data.titles}</p></div>`);
+        })
+      })
+
+      $("body").on("click", "#lannister", function () {
+        $('.info').remove();
+        $.get("https://anapioficeandfire.com/api/houses/229/", function (data) {
+          console.log(data)
+          $(".row").append(`<div class="rounded info mt-5 col-6 bg-light offset-md-3"><h3 class="p-2">House Details</h3><ul><li>Name: ${data.name}</li><li>Words: ${data.words}</li></ul><p class="p-2">Titles: ${data.titles}</p></div>`);
+        })
+      })
+
+      $("body").on("click", "#baratheon", function () {
+        $('.info').remove();
+        $.get("https://anapioficeandfire.com/api/houses/17/", function (data) {
+          console.log(data)
+          $(".row").append(`<div class="rounded info mt-5 col-6 bg-light offset-md-3"><h3 class="p-2">House Details</h3><ul><li>Name: ${data.name}</li><li>Words: ${data.words}</li></ul><p class="p-2">Titles: ${data.titles}</p></div>`);
+        })
+      })
+
+
+    })
+  </script>
+</body>
+
+</html>
